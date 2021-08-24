@@ -3,7 +3,8 @@
 class SiteController {
     
     public function ActionView() {
-        echo 'This is SiteController';
+        echo '<br>', 'This is SiteController and ActionView';
+        return true;
     }
 }
 
