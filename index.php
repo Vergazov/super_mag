@@ -1,5 +1,6 @@
 <?php
 
+require_once 'components/DB.php';
 require_once 'components/Router.php';
 define('ROOT', __DIR__);
 
