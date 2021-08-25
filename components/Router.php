@@ -27,8 +27,8 @@
                 
                 $segments = explode('/', $internalRoute);
                 
-              echo '<pre>';
-              print_r($segments);
+//              echo '<pre>';
+//              print_r($segments);
                 
                 $controller = ucfirst(array_shift($segments)) . 'Controller';
                 
