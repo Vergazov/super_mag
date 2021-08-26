@@ -3,6 +3,6 @@
 return array(
     'db_name' =>'super_mag',
     'db_user' =>'root',
-    'db_pass' =>'',
+    'db_pass' =>'root',
 );
 
