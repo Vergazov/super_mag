@@ -29,8 +29,8 @@
                         <div class="features_items"><!--features_items-->
                             <h2 class="title text-center">Последние товары</h2>
                             
-                              <?php foreach ($latestProduct as $product): ?>
-                            
+                             
+                             <?php foreach ($latestProduct as $product): ?>                   
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                              </div>
-                              <?php endforeach;?>
+                            <?php endforeach;?>
                         </div><!--features_items-->
 
                         <div class="recommended_items"><!--recommended_items-->

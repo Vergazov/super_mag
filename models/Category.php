@@ -1,4 +1,5 @@
 <?php
+
 Class Category
 {
 public static function GetCategoriesList() {
@@ -16,5 +17,6 @@ public static function GetCategoriesList() {
         $i++;
     }
     return $categoryList;
-    }
+  
+}
 }
