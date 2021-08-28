@@ -28,17 +28,19 @@ class Product {
         return $productList;
     }
     
-    public static function getProductListByCategory($categoryId = false,$count1 = self::SHOW_BY_DEFAULT) {
+    public static function getProductListByCategory($categoryId,$count1 = self::SHOW_BY_DEFAULT) {
         
-    //       $categoryId = intval($categoryId); 
-       $count1 = intval($count1);
+          
+  
         
         if($categoryId) {
+            
+            
             $pdo = Db::getConnection();
             
             $products = array();
             $result = $pdo->query("SELECT id,name,price,image,is_new FROM product where status = 1 "
-                    . "AND category_id = $categoryId "
+                    . "AND category_id = $categoryId[0] "
                     . "ORDER BY id DESC "
                     . "LIMIT $count1 " );
             $i=0;
@@ -51,8 +53,24 @@ class Product {
                 $i++;
             }
             return $products;
-        }
+        }        
     }
-
+    
+    public static function getProductById($id) {
+        
+        
+        print_r($id);
+        
+        
+        
+        if($id) {
+            $pdo = Db::getConnection();
+            
+            $result = $pdo->query("SELECT * FROM product WHERE id = $id[0]");
+            return $result->fetch(PDO::FETCH_ASSOC);
+            
+            
+        }              
+    }
 }
 

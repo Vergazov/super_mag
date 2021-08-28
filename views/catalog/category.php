@@ -13,7 +13,11 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a href="/category/<?php echo $categoryItem['id'];?>">
+                                            <a href="/super_mag/category/<?php echo $categoryItem['id'];?>"
+                                               <?php if($categoryId[0] == $categoryItem['id']):?> 
+                                                   class = "active" 
+                                               <?php endif; ?> >
+                                                
                                                 <?php echo $categoryItem['name'] ?>
                                             </a></h4>
                                     </div>
@@ -38,7 +42,7 @@
                                             <img src="/super_mag/template/images/home/<?php echo $product['image']; ?>" />
                                             <h2><?php echo $product['price']; ?></h2>
                                             <p>
-                                                <a href="product/<?php echo $product['id'];?>">
+                                                <a href="/super_mag/product/<?php echo $product['id'];?>">
                                                     <?php echo $product['name']; ?>
                                                 </a>
                                             </p>
@@ -51,7 +55,7 @@
                                 </div>
                              </div>
                             <?php endforeach;?>
-                        </div><!--features_items-->
+                        </div>
                     </div>
                     </div>
                 </section>

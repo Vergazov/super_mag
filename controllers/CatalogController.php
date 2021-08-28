@@ -16,6 +16,7 @@ class CatalogController {
         $latestProduct = Product::getLatestProduct(8);
         
         require_once(ROOT . '/views/catalog/index.php');
+       
         
         return true;       
         
@@ -30,6 +31,8 @@ class CatalogController {
         $categoryProducts = Product::getProductListByCategory($categoryId,5);
         
         require_once(ROOT . '/views/catalog/category.php');
+        
+        return true;
     }
 }
 

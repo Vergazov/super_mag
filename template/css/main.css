@@ -13,6 +13,7 @@ body {
   font-weight:400px;
 }
 
+
 ul li {
   list-style: none;
 }
@@ -2523,6 +2524,11 @@ h2.title {
 
 .contact-info .social-networks ul li a:hover{
   color: #FE980F;
+}
+
+.active {
+    color: #eea236;
+
 }
 
 

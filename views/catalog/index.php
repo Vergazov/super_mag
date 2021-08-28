@@ -38,7 +38,7 @@
                                             <img src="/super_mag/template/images/home/<?php echo $product['image']; ?>" />
                                             <h2><?php echo $product['price']; ?></h2>
                                             <p>
-                                                <a href="product/<?php echo $product['id'];?>">
+                                                <a href="/super_mag/product/<?php echo $product['id'];?>">
                                                     <?php echo $product['name']; ?>
                                                 </a>
                                             </p>
