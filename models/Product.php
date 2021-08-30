@@ -2,7 +2,7 @@
 
 class Product {    
 
-    const SHOW_BY_DEFAULT = 10;
+    const SHOW_BY_DEFAULT = 3;
     
     public static function getLatestProduct($count = self::SHOW_BY_DEFAULT) {
         
@@ -28,21 +28,21 @@ class Product {
         return $productList;
     }
     
-    public static function getProductListByCategory($categoryId,$count1 = self::SHOW_BY_DEFAULT) {
-        
-          
-  
-        
+    public static function getProductListByCategory($categoryId, $page = 1) {
+                    
         if($categoryId) {
             
+            $page = intval($page);
+            $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
             
             $pdo = Db::getConnection();
             
             $products = array();
             $result = $pdo->query("SELECT id,name,price,image,is_new FROM product where status = 1 "
-                    . "AND category_id = $categoryId[0] "
+                    . "AND category_id = $categoryId "
                     . "ORDER BY id DESC "
-                    . "LIMIT $count1 " );
+                    . "LIMIT " . self::SHOW_BY_DEFAULT
+                    . "     OFFSET " . $offset);
             $i=0;
             while($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $products[$i]['id'] = $row['id'];
@@ -66,11 +66,22 @@ class Product {
         if($id) {
             $pdo = Db::getConnection();
             
-            $result = $pdo->query("SELECT * FROM product WHERE id = $id[0]");
+            $result = $pdo->query("SELECT * FROM product WHERE id = $id");
             return $result->fetch(PDO::FETCH_ASSOC);
             
             
         }              
+    }
+    
+    public static function getTotalProductInCategory($categoryId) {
+        
+        $pdo = Db::getConnection();
+        
+        $result = $pdo->query("SELECT count(id) AS count FROM product "
+                . "WHERE status = 1 AND category_id = $categoryId ");
+        $row = $result->fetch(PDO::FETCH_ASSOC);
+        
+        return $row['count'];
     }
 }
 

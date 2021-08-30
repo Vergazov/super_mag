@@ -3,6 +3,7 @@
 
 include_once ROOT . '/models/Category.php';
 include_once ROOT . '/models/Product.php';
+include_once ROOT . '/components/Pagination.php';
 
 
 class CatalogController {
@@ -22,13 +23,21 @@ class CatalogController {
         
     }
     
-    public function ActionCategory($categoryId) {
+    public function ActionCategory($categoryId, $page=1) {
+        
+       echo $categoryId, '<br>' ;
+       echo $page;
+        
         
         $categories = array();
         $categories = Category::GetCategoriesList();
         
         $categoryProducts = array();
-        $categoryProducts = Product::getProductListByCategory($categoryId,5);
+        $categoryProducts = Product::getProductListByCategory($categoryId,$page);
+        
+        $total = Product::getTotalProductInCategory($categoryId);
+        
+        $pagination = new Pagination($total, $page, Product::SHOW_BY_DEFAULT, 'page-');
         
         require_once(ROOT . '/views/catalog/category.php');
         

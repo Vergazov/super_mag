@@ -1,5 +1,6 @@
 <?php
 return array(
+    'super_mag/category/([0-9]+)/page-([0-9]+)' => 'catalog/category/$1/$2',
     'super_mag/category/([0-9]+)' => 'catalog/category/$1',
     'super_mag/catalog' => 'catalog/view',
     'super_mag/product/([0-9]+)' => 'product/list/$1',

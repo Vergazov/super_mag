@@ -59,7 +59,7 @@
 //            echo '<pre>';
 //            print_r($controllerObject);
                 
-            $result = call_user_func(array($controllerObject, $action), $parameters);
+            $result = call_user_func_array(array($controllerObject, $action), $parameters);
             
 //            echo '<pre>';
 //            print_r($result);

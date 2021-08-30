@@ -13,7 +13,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a href="/category/<?php echo $categoryItem['id'];?>">
+                                            <a href="/super_mag/category/<?php echo $categoryItem['id'];?>">
                                                 <?php echo $categoryItem['name'] ?>
                                             </a></h4>
                                     </div>
