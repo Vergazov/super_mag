@@ -19,7 +19,7 @@
          
          foreach ($this->routes as $key => $value) {
 //             echo '<br>', $key;
-             if(preg_match("~$key~", $uri)){
+             if(preg_match("~$key$~", $uri)){
                 $internalRoute = preg_replace("~$key~", $value , $uri);
                 
 //              echo '<pre>';

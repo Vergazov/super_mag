@@ -1,7 +1,5 @@
 <?php
-
-require_once 'components/DB.php';
-require_once 'components/Router.php';
+require_once 'components/Autoload.php';
 define('ROOT', __DIR__);
 
 $router = new Router;
