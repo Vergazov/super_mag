@@ -53,6 +53,12 @@ class User {
              
          }
          
+         public static function checkUserData($email,$password) {
+             
+             $sql = Db::getConnection();
+             
+             $sql = 'SELECT * from user where email = ';
+         }
          
     
     }
