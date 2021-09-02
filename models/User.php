@@ -1,9 +1,7 @@
 <?php
 
 class User {
-    public static function register() {
-        
-    }   
+      
         public static function checkName($name) {
             if(strlen($name) >=2) {
             return true;
@@ -18,12 +16,44 @@ class User {
             return false;
         }
         
-                public static function checkemail($email) {
+                public static function checkEmail($email) {
             if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return true;
             }
             return false;
         }
+        
+        public static function checkEmailExists($email) {
+            $pdo = Db::getConnection();
+            
+            $sql = 'SELECT * FROM user where email = :email';
+            $params = [':email' => $email];
+            $result = $pdo->prepare($sql);
+            $result->execute($params);
+            
+            if($result->fetch()){
+                return true;
+            }
+            else return false;
+            
+            
+        }
+        
+         public static function register($name, $email, $password) {
+             
+             $pdo = Db::getConnection();
+             
+             $sql = 'INSERT INTO user(name,email,password) values(:name, :email, :password)';
+             
+             $params = [':name' => $name,':email' => $email,':password' => $password];
+             $result = $pdo->prepare($sql);
+             $result->execute($params);
+             
+             return $result->execute();
+             
+         }
+         
+         
     
     }
 

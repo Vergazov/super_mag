@@ -6,4 +6,6 @@ return array(
     'super_mag/product/([0-9]+)' => 'product/list/$1',
     'super_mag' => 'site/view',
     'super_mag/user/register' => 'user/register',
+    'super_mag/cabinet' => 'cabinet/index',
+    'super_mag/user/login' => 'user/login',
 );
