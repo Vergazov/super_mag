@@ -55,10 +55,49 @@ class User {
          
          public static function checkUserData($email,$password) {
              
-             $sql = Db::getConnection();
+             $pdo = Db::getConnection();
              
-             $sql = 'SELECT * from user where email = ';
+             $sql = 'SELECT * from user where email = :email AND password = :password';
+             
+             $params = [':email' => $email, ':password' => $password];
+             $result = $pdo->prepare($sql);
+             $result->execute($params);
+             
+             $user = $result->fetch(PDO::FETCH_ASSOC);
+             if($user) {
+                 return $user['id'];  
+             }
+             return false;             
+             
          }
+         
+         public static function auth($userId){
+                 
+             
+             
+             $_SESSION['user'] = $userId;
+             }
+          
+         public static function checkLogged(){
+             
+             
+             if(isset($_SESSION['user'])){
+                 return$_SESSION['user'];
+             }
+             header("Location: /super_mag/user/login");
+         }
+         
+         public static function isGuest(){
+             
+             
+             if(isset($_SESSION['user'])){
+                 return false;
+             }
+             return true;
+             
+         }
+                 
+         
          
     
     }
