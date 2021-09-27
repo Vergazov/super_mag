@@ -66,6 +66,7 @@
                                     <?php else: ?>
                                     <li><a href="/super_mag/cabinet/"><i class="fa fa-user"></i> Аккаунт</a></li>                                 
                                     <li><a href="/super_mag/user/logout"><i class="fa fa-unlock"></i> Выход</a></li>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
@@ -104,4 +105,4 @@
                 </div>
             </div><!--/header-bottom-->
             
-        </header><!--/header-->
+        </header>

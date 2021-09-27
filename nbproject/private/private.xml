@@ -6,11 +6,10 @@
             <file>file:/C:/xampp/htdocs/super_mag/views/cabinet/index.php</file>
             <file>file:/C:/xampp/htdocs/super_mag/controllers/CabinetController.php</file>
             <file>file:/C:/xampp/htdocs/super_mag/models/User.php</file>
-            <file>file:/C:/xampp/htdocs/super_mag/views/user/login.php</file>
             <file>file:/C:/xampp/htdocs/super_mag/views/site/index.php</file>
-            <file>file:/C:/xampp/htdocs/super_mag/controllers/UserController.php</file>
+            <file>file:/C:/xampp/htdocs/super_mag/controllers/CatalogController.php</file>
             <file>file:/C:/xampp/htdocs/super_mag/config/routes.php</file>
-            <file>file:/C:/xampp/htdocs/super_mag/views/layouts/header.php</file>
+            <file>file:/C:/xampp/htdocs/super_mag/views/cabinet/edit.php</file>
         </group>
     </open-files>
 </project-private>

@@ -97,7 +97,19 @@ class User {
              
          }
                  
-         
+         public static function getUserById($id) {
+             if($id) {
+                 $pdo = Db::getConnection();
+                 $sql = 'SELECT * from user WHERE id = :id';
+                 
+                  $params = [':id' => $id];
+                  $result = $pdo->prepare($sql);
+                  $result->execute($params);
+             
+                  return $result->fetch(PDO::FETCH_ASSOC);
+                 
+             }
+         }
          
     
     }
