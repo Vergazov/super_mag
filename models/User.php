@@ -111,6 +111,21 @@ class User {
              }
          }
          
+         public static function edit($id,$name,$password) {
+             
+             $pdo = Db::getConnection();
+             
+             $sql = 'UPDATE user SET name = :name, password = :password WHERE id = :id';
+             
+             $params = [':id' => $id, ':name' => $name, ':password' => $password];
+             $result = $pdo->prepare($sql);
+             $result->execute($params);
+             return $result->fetch(PDO::FETCH_ASSOC);
+             
+             
+             
+         }
+         
     
     }
 
