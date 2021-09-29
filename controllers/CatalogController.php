@@ -20,8 +20,12 @@ class CatalogController {
     
     public function ActionCategory($categoryId, $page=1) {
         
-       echo $categoryId, '<br>' ;
-       echo $page;
+//       echo $categoryId, '<br>' ;
+//       echo $page;
+        
+           
+//            print_r($_SESSION['products']);
+  
         
         
         $categories = array();

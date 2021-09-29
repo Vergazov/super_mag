@@ -9,5 +9,6 @@ return array(
     'super_mag/cabinet' => 'cabinet/index',
     'super_mag/user/login' => 'user/login',
     'super_mag/user/logout' => 'user/logout',
-    'super_mag/cabinet/edit' => 'cabinet/edit'
+    'super_mag/cabinet/edit' => 'cabinet/edit',
+    'super_mag/cart/add/([0-9]+)' => 'cart/add/$1'
 );
