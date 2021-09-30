@@ -58,11 +58,7 @@ class Product {
     
     public static function getProductById($id) {
         
-        
-        print_r($id);
-        
-        
-        
+               
         if($id) {
             $pdo = Db::getConnection();
             
@@ -82,6 +78,31 @@ class Product {
         $row = $result->fetch(PDO::FETCH_ASSOC);
         
         return $row['count'];
+    }
+    
+    public static function getProductByIds($idsArray) {
+        
+        $products = array();
+        
+        $pdo = Db::getConnection();
+        
+        $idsString = implode(',', $idsArray);
+        $sql = "SELECT * from product WHERE status = 1 and id IN($idsString)";
+        
+        $result = $pdo->query($sql);
+        $result->fetch(PDO::FETCH_ASSOC);
+        
+        $i = 0;
+        
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $products[$i]['id'] = $row['id'];
+            $products[$i]['code'] = $row['code'];
+            $products[$i]['name'] = $row['name'];
+            $products[$i]['price'] = $row['price'];
+            $i++;
+            
+        }
+        return $products;
     }
 }
 
